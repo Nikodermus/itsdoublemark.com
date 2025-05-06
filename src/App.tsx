@@ -1,6 +1,6 @@
 import './App.css'
 
-const text = "¡coming soon!"
+const text = "¡double mark!"
 
 function App() {
   return (
@@ -12,6 +12,8 @@ function App() {
           </span>
         ))}
       </h1>
+
+      <h2 className='letter letter--small' style={{animationDelay: `${(text.length + 1) * 0.1}s`}}>¡Coming Soon!</h2>
     </div>
   )
 }
