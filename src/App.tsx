@@ -1,6 +1,6 @@
 import './App.css'
 
-const text = "¡double mark!"
+const text = "¡coming soon!"
 
 function App() {
   return (
