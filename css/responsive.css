@@ -26,10 +26,10 @@
 ---------------------------------------- */
 @media (max-width: 1199px) {
     .characters__grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-sm);
     }
-    
+
     .character-card__image {
         height: 200px;
     }
@@ -43,7 +43,7 @@
         --space-lg: 3rem;
         --space-xl: 4rem;
     }
-    
+
     /* Concept Grid */
     .concept__grid {
         grid-template-columns: 1fr;
@@ -67,7 +67,7 @@
     .zone-card:nth-child(even) {
         direction: ltr;
     }
-    
+
     .zone-card__visual {
         min-height: 180px;
     }
@@ -78,7 +78,7 @@
         max-width: 500px;
         margin: 0 auto;
     }
-    
+
     .character-card__image {
         height: 280px;
     }
@@ -98,7 +98,7 @@
         --container-padding: var(--space-sm);
         --grid-size: 30px;
     }
-    
+
     /* Navigation - Mobile Menu */
     .nav__links {
         position: fixed;
@@ -124,7 +124,7 @@
     .nav__toggle {
         display: flex;
     }
-    
+
     .nav__link {
         font-size: var(--text-lg);
     }
@@ -138,7 +138,7 @@
         width: 100%;
         justify-content: center;
     }
-    
+
     .hero__date {
         display: none;
     }
@@ -167,12 +167,12 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     /* CTA */
     .cta__content {
         padding: var(--space-md);
     }
-    
+
     .cta::before {
         width: 95%;
     }
@@ -187,61 +187,59 @@
         --space-lg: 2.5rem;
         --space-xl: 3rem;
     }
-    
+
     /* Typography adjustments */
     h2 {
         margin-bottom: var(--space-sm);
     }
-    
+
     /* Hero */
     .hero {
         min-height: calc(100vh - 60px);
         padding-top: 100px;
     }
-    
+
     .hero__stripe {
-        width: 100%;
-        height: 50%;
-        opacity: 0.2;
+        display: none;
     }
-    
+
     /* Zone cards */
     .zone-card {
         padding-left: 30px;
     }
-    
+
     .zones__timeline::before {
         left: 10px;
     }
-    
+
     .zone-card__number {
         font-size: var(--text-3xl);
     }
-    
+
     /* Feature cards */
     .feature-card {
         padding: var(--space-sm);
     }
-    
+
     .feature-card__icon {
         width: 40px;
         height: 40px;
     }
-    
+
     /* Character cards */
     .character-card__image {
         height: 220px;
     }
-    
+
     .character-card__info {
         padding: var(--space-sm);
     }
-    
+
     /* Controls */
     .control-item {
         padding: var(--space-xs);
     }
-    
+
     .control-key {
         min-width: 50px;
         font-size: var(--text-xs);
@@ -255,28 +253,28 @@
     :root {
         --container-padding: var(--space-xs);
     }
-    
+
     .nav__logo-icon {
         width: 35px;
         height: 35px;
         font-size: 1rem;
     }
-    
+
     .nav__logo {
         font-size: var(--text-base);
     }
-    
+
     .hero__title {
-        text-shadow: 
+        text-shadow:
             2px 2px 0 var(--color-accent-purple),
             4px 4px 0 rgba(107, 45, 92, 0.5);
     }
-    
+
     .btn {
         padding: var(--space-xs) var(--space-sm);
         font-size: var(--text-xs);
     }
-    
+
     .footer__logo {
         width: 40px;
         height: 40px;
@@ -291,7 +289,7 @@
         min-height: auto;
         padding: 120px 0 var(--space-lg);
     }
-    
+
     .hero__description {
         margin-bottom: var(--space-md);
     }
@@ -305,15 +303,15 @@
         min-height: auto;
         padding: 80px 0 var(--space-md);
     }
-    
+
     .hero__tagline {
         margin-bottom: var(--space-sm);
     }
-    
+
     .hero__description {
         display: none;
     }
-    
+
     section {
         padding: var(--space-md) 0;
     }
@@ -340,26 +338,28 @@
     .btn {
         display: none !important;
     }
-    
+
     body {
         background: white;
         color: black;
     }
-    
+
     .hero {
         min-height: auto;
         padding: 20px 0;
     }
-    
+
     section {
         padding: 20px 0;
         page-break-inside: avoid;
     }
-    
-    h1, h2, h3 {
+
+    h1,
+    h2,
+    h3 {
         color: black;
     }
-    
+
     a {
         text-decoration: underline;
     }

@@ -15,7 +15,7 @@
     /* ----------------------------------------
        COLORES - Líneas y bordes
     ---------------------------------------- */
-    --color-grid-line: #2d2d3a;
+    --color-grid-line: #e6ddc011;
     --color-border: #3d3d5c;
 
     /* ----------------------------------------
@@ -39,18 +39,30 @@
     ---------------------------------------- */
     --gradient-stripe: linear-gradient(
         135deg,
-        var(--color-accent-purple) 0%,
-        var(--color-accent-magenta) 20%,
-        var(--color-accent-red) 40%,
-        var(--color-accent-orange) 70%,
+        var(--color-accent-purple) 50%,
+        var(--color-accent-purple) 60%,
+        var(--color-accent-magenta) 60%,
+        var(--color-accent-magenta) 70%,
+        var(--color-accent-red) 70%,
+        var(--color-accent-red) 80%,
+        var(--color-accent-orange) 80%,
+        var(--color-accent-orange) 90%,
+        var(--color-accent-yellow) 90%,
         var(--color-accent-yellow) 100%
     );
 
     --gradient-stripe-vertical: linear-gradient(
         to bottom,
-        var(--color-accent-yellow),
-        var(--color-accent-red),
-        var(--color-accent-purple)
+        var(--color-accent-purple) 0%,
+        var(--color-accent-purple) 20%,
+        var(--color-accent-magenta) 20%,
+        var(--color-accent-magenta) 40%,
+        var(--color-accent-red) 40%,
+        var(--color-accent-red) 60%,
+        var(--color-accent-orange) 60%,
+        var(--color-accent-orange) 80%,
+        var(--color-accent-yellow) 80%,
+        var(--color-accent-yellow) 100%
     );
 
     --gradient-fade-dark: linear-gradient(
@@ -88,13 +100,13 @@
     /* ----------------------------------------
        ESPACIADO
     ---------------------------------------- */
-    --space-2xs: 0.25rem;   /* 4px */
-    --space-xs: 0.5rem;     /* 8px */
-    --space-sm: 1rem;       /* 16px */
-    --space-md: 2rem;       /* 32px */
-    --space-lg: 4rem;       /* 64px */
-    --space-xl: 6rem;       /* 96px */
-    --space-2xl: 8rem;      /* 128px */
+    --space-2xs: 0.25rem; /* 4px */
+    --space-xs: 0.5rem; /* 8px */
+    --space-sm: 1rem; /* 16px */
+    --space-md: 2rem; /* 32px */
+    --space-lg: 4rem; /* 64px */
+    --space-xl: 6rem; /* 96px */
+    --space-2xl: 8rem; /* 128px */
 
     /* ----------------------------------------
        LAYOUT

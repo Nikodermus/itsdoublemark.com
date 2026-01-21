@@ -23,7 +23,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--color-bg-grid);
-    background-image: 
+    background-image:
         linear-gradient(var(--color-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
@@ -36,10 +36,10 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 60%;
-    height: 60%;
+    width: 40vmin;
+    height: 40vmin;
     background: var(--gradient-stripe);
-    clip-path: polygon(100% 100%, 100% 30%, 40% 100%);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     opacity: 0.15;
 }
 
@@ -159,7 +159,7 @@ img {
 }
 
 /* Hide placeholder when image loads */
-img:not([src=""]):not([src*="placeholder"]) + .placeholder-text {
+img:not([src='']):not([src*='placeholder']) + .placeholder-text {
     display: none;
 }
 

@@ -30,7 +30,7 @@
 
 .hero__title {
     color: var(--color-text-primary);
-    text-shadow: 
+    text-shadow:
         4px 4px 0 var(--color-accent-purple),
         8px 8px 0 rgba(107, 45, 92, 0.5);
     margin-bottom: var(--space-sm);
@@ -60,13 +60,13 @@
 
 .hero__stripe {
     position: absolute;
-    bottom: -10%;
-    right: -10%;
-    width: 70%;
-    height: 80%;
+    bottom: 0;
+    right: 0;
+    width: 40vmin;
+    height: 40vmin;
     background: var(--gradient-stripe);
-    clip-path: polygon(100% 100%, 100% 40%, 50% 100%);
-    opacity: 0.3;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    opacity: 0.6;
     z-index: 1;
     pointer-events: none;
 }

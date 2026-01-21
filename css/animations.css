@@ -71,7 +71,8 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 1;
     }
     50% {
@@ -80,11 +81,14 @@
 }
 
 @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 5px var(--color-accent-yellow);
     }
     50% {
-        box-shadow: 0 0 20px var(--color-accent-yellow), 0 0 30px var(--color-accent-orange);
+        box-shadow:
+            0 0 20px var(--color-accent-yellow),
+            0 0 30px var(--color-accent-orange);
     }
 }
 
@@ -98,7 +102,8 @@
 }
 
 @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -112,7 +117,7 @@
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
-    transition: 
+    transition:
         opacity 0.6s ease,
         transform 0.6s ease;
 }
@@ -123,20 +128,44 @@
 }
 
 /* Staggered animations for grid items */
-.features__grid .animate-on-scroll:nth-child(1) { transition-delay: 0s; }
-.features__grid .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
-.features__grid .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
-.features__grid .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
-.features__grid .animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
-.features__grid .animate-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+.features__grid .animate-on-scroll:nth-child(1) {
+    transition-delay: 0s;
+}
+.features__grid .animate-on-scroll:nth-child(2) {
+    transition-delay: 0.1s;
+}
+.features__grid .animate-on-scroll:nth-child(3) {
+    transition-delay: 0.2s;
+}
+.features__grid .animate-on-scroll:nth-child(4) {
+    transition-delay: 0.3s;
+}
+.features__grid .animate-on-scroll:nth-child(5) {
+    transition-delay: 0.4s;
+}
+.features__grid .animate-on-scroll:nth-child(6) {
+    transition-delay: 0.5s;
+}
 
-.characters__grid .animate-on-scroll:nth-child(1) { transition-delay: 0s; }
-.characters__grid .animate-on-scroll:nth-child(2) { transition-delay: 0.15s; }
-.characters__grid .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.characters__grid .animate-on-scroll:nth-child(1) {
+    transition-delay: 0s;
+}
+.characters__grid .animate-on-scroll:nth-child(2) {
+    transition-delay: 0.15s;
+}
+.characters__grid .animate-on-scroll:nth-child(3) {
+    transition-delay: 0.3s;
+}
 
-.zones__timeline .animate-on-scroll:nth-child(1) { transition-delay: 0s; }
-.zones__timeline .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
-.zones__timeline .animate-on-scroll:nth-child(3) { transition-delay: 0.4s; }
+.zones__timeline .animate-on-scroll:nth-child(1) {
+    transition-delay: 0s;
+}
+.zones__timeline .animate-on-scroll:nth-child(2) {
+    transition-delay: 0.2s;
+}
+.zones__timeline .animate-on-scroll:nth-child(3) {
+    transition-delay: 0.4s;
+}
 
 /* ----------------------------------------
    Hover Animations
@@ -236,12 +265,12 @@
         transform: none;
         transition: none;
     }
-    
+
     .animate-on-scroll.visible {
         opacity: 1;
         transform: none;
     }
-    
+
     .page-loaded .hero__subtitle,
     .page-loaded .hero__title,
     .page-loaded .hero__tagline,
@@ -251,8 +280,59 @@
         animation: none;
         opacity: 1;
     }
-    
+
     .loading::after {
         animation: none;
+    }
+}
+
+.hero-parallax {
+    position: relative;
+    display: inline-block;
+
+    /* Tweakables */
+    --parallax-strength: 60; /* px max travel per axis */
+    --parallax-ease: 0.12; /* 0.01 - 0.5 */
+    --shadow1-scale: 1; /* movement multiplier */
+    --shadow1-offset-x: 10px;
+    --shadow1-offset-y: 10px;
+    --shadow2-scale: 3;
+    --shadow2-offset-x: 18px;
+    --shadow2-offset-y: 18px;
+
+    /* Runtime */
+    --tx: 0px;
+    --ty: 0px;
+}
+.hero-parallax__img {
+    position: relative;
+    z-index: 3;
+    display: block;
+}
+.hero-parallax__shadow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    transform: translate3d(
+        calc(var(--tx) * var(--shadow1-scale) - var(--shadow1-offset-x)),
+        calc(var(--ty) * var(--shadow1-scale) + var(--shadow1-offset-y)),
+        0
+    );
+    will-change: transform;
+    pointer-events: none;
+}
+.hero-parallax__shadow--2 {
+    z-index: 1;
+    transform: translate3d(
+        calc(var(--tx) * var(--shadow2-scale) - var(--shadow2-offset-x)),
+        calc(var(--ty) * var(--shadow2-scale) + var(--shadow2-offset-y)),
+        0
+    );
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-parallax__shadow {
+        transform: none !important;
     }
 }
