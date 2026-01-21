@@ -166,20 +166,37 @@
 
 // Parallax Effect for Hero Section
 (function () {
-    const prefersReduced = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-    ).matches;
-    const finePointer = window.matchMedia('(pointer: fine)').matches;
-    if (prefersReduced) return;
+    const wrapper = document.querySelector('.hero-parallax');
+
+    if (!wrapper) return;
+
+    const shouldEnableParallax = () => {
+        const prefersReduced = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+        const finePointer = window.matchMedia('(pointer: fine)').matches;
+        const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+        const isMobileUA = /Mobi|Android|iPhone|iPad|iPod/i.test(
+            navigator.userAgent
+        );
+        const isSmallViewport = window.innerWidth < 1024;
+        return (
+            !prefersReduced &&
+            finePointer &&
+            !isCoarsePointer &&
+            !isMobileUA &&
+            !isSmallViewport
+        );
+    };
 
     const title = document.querySelector('.hero__title');
 
-    const wrapper = document.querySelector('.hero-parallax');
+    // Wrapper already verified above
 
     const shadow1 = document.querySelector('hero-parallax__shadow--1');
     const shadow2 = document.querySelector('hero-parallax__shadow--2');
 
-    if (!finePointer) return;
+    let enabled = false;
 
     const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
@@ -190,15 +207,18 @@
         return Number.isFinite(v) ? v : fallback;
     };
 
-    let strength = getNumberVar(
-        wrapper,
-        '--parallax-strength',
-        Math.min(20, Math.max(10, Math.round(window.innerWidth / 80)))
-    );
-    strength = clamp(strength, 0, 200);
-
-    let ease = getNumberVar(wrapper, '--parallax-ease', 0.12);
-    ease = clamp(ease, 0.01, 0.5);
+    let strength = 0;
+    let ease = 0.12;
+    const recomputeStrengthEase = () => {
+        strength = getNumberVar(
+            wrapper,
+            '--parallax-strength',
+            Math.min(20, Math.max(10, Math.round(window.innerWidth / 80)))
+        );
+        strength = clamp(strength, 0, 200);
+        ease = getNumberVar(wrapper, '--parallax-ease', 0.12);
+        ease = clamp(ease, 0.01, 0.5);
+    };
 
     let tx = 0,
         ty = 0;
@@ -227,10 +247,43 @@
         targetY = 0;
     };
 
-    window.addEventListener('mousemove', onMove, {
-        passive: true,
-    });
-    window.addEventListener('mouseleave', onLeave, {
-        passive: true,
-    });
+    const enableParallax = () => {
+        if (enabled) return;
+        enabled = true;
+        recomputeStrengthEase();
+        window.addEventListener('mousemove', onMove, { passive: true });
+        window.addEventListener('mouseleave', onLeave, { passive: true });
+    };
+
+    const disableParallax = () => {
+        if (!enabled) {
+            // Ensure variables are reset even if never enabled
+            wrapper.style.setProperty('--tx', '0px');
+            wrapper.style.setProperty('--ty', '0px');
+            return;
+        }
+        enabled = false;
+        window.removeEventListener('mousemove', onMove, { passive: true });
+        window.removeEventListener('mouseleave', onLeave, { passive: true });
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+        targetX = 0;
+        targetY = 0;
+        wrapper.style.setProperty('--tx', '0px');
+        wrapper.style.setProperty('--ty', '0px');
+    };
+
+    const updateParallax = () => {
+        if (shouldEnableParallax()) {
+            enableParallax();
+        } else {
+            disableParallax();
+        }
+    };
+
+    // Initialize and respond to viewport changes
+    updateParallax();
+    window.addEventListener('resize', updateParallax, { passive: true });
 })();
