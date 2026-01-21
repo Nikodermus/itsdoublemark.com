@@ -1,0 +1,364 @@
+/* ============================================
+   COMPONENTS - APEIRON
+   Componentes reutilizables
+   ============================================ */
+
+/* ----------------------------------------
+   Container
+---------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ----------------------------------------
+   Buttons
+---------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.btn--primary {
+    background: var(--color-accent-yellow);
+    color: var(--color-bg-dark);
+}
+
+.btn--primary:hover {
+    background: var(--color-accent-orange);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-yellow);
+}
+
+.btn--primary:active {
+    transform: translateY(0);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+}
+
+.btn--outline:hover {
+    background: var(--color-text-primary);
+    color: var(--color-bg-dark);
+}
+
+.btn--secondary {
+    background: var(--color-accent-red);
+    color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+    background: var(--color-accent-magenta);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-red);
+}
+
+.btn--small {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-xs);
+}
+
+.btn--large {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-base);
+}
+
+/* ----------------------------------------
+   Feature Cards
+---------------------------------------- */
+.feature-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-grid-line);
+    padding: var(--space-md);
+    position: relative;
+    transition: 
+        transform var(--transition-smooth),
+        border-color var(--transition-smooth);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--color-accent-yellow);
+    transition: height var(--transition-smooth);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-yellow);
+}
+
+.feature-card:hover::before {
+    height: 100%;
+}
+
+.feature-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.feature-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.feature-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+}
+
+.feature-card__desc {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+}
+
+/* ----------------------------------------
+   Zone Cards
+---------------------------------------- */
+.zone-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    position: relative;
+}
+
+.zone-card:nth-child(even) {
+    direction: rtl;
+}
+
+.zone-card:nth-child(even) > * {
+    direction: ltr;
+}
+
+.zone-card__content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-grid-line);
+    padding: var(--space-md);
+}
+
+.zone-card__number {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    line-height: 1;
+    opacity: 0.3;
+    margin-bottom: var(--space-xs);
+}
+
+.zone-card__title {
+    color: var(--color-accent-yellow);
+    margin-bottom: var(--space-sm);
+}
+
+.zone-card:nth-child(2) .zone-card__title {
+    color: var(--color-accent-orange);
+}
+
+.zone-card:nth-child(3) .zone-card__title {
+    color: var(--color-accent-red);
+}
+
+.zone-card__visual {
+    background: var(--color-bg-grid);
+    border: 1px solid var(--color-grid-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.zone-card__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ----------------------------------------
+   Character Cards
+---------------------------------------- */
+.character-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-grid-line);
+    overflow: hidden;
+    transition: 
+        transform var(--transition-smooth),
+        border-color var(--transition-smooth);
+}
+
+.character-card:hover {
+    transform: scale(1.02);
+    border-color: var(--color-accent-yellow);
+}
+
+.character-card__image {
+    height: 250px;
+    background: var(--color-bg-grid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card__image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--color-bg-grid), transparent);
+    pointer-events: none;
+}
+
+.character-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-card__info {
+    padding: var(--space-md);
+}
+
+.character-card__name {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2xs);
+    text-transform: uppercase;
+}
+
+.character-card__role {
+    display: block;
+    color: var(--color-accent-yellow);
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+}
+
+.character-card:nth-child(2) .character-card__role {
+    color: var(--color-accent-orange);
+}
+
+.character-card:nth-child(3) .character-card__role {
+    color: var(--color-accent-red);
+}
+
+.character-card__desc {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+}
+
+/* ----------------------------------------
+   Control Items
+---------------------------------------- */
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-grid-line);
+}
+
+.control-key {
+    background: var(--color-accent-yellow);
+    color: var(--color-bg-dark);
+    padding: 4px 10px;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    min-width: 60px;
+    text-align: center;
+}
+
+.control-action {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+/* ----------------------------------------
+   Mechanics List
+---------------------------------------- */
+.mechanics-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-md);
+}
+
+.mechanics-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-grid-line);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.mechanics-list li::before {
+    content: '►';
+    color: var(--color-accent-yellow);
+    font-size: var(--text-xs);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* ----------------------------------------
+   Visual Boxes (placeholders)
+---------------------------------------- */
+.visual-box {
+    position: relative;
+    background: var(--color-bg-grid);
+    border: 1px solid var(--color-grid-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.visual-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-stripe);
+}

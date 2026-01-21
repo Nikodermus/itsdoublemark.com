@@ -1,13 +1,783 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>¡!</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="APEIRON - Desciende, mejora, muere. Un shooter en tercera persona con combates en arenas, ambientado en una plataforma petrolera abandonada llena de secretos y horrores cósmicos."
+        />
+        <meta
+            name="keywords"
+            content="APEIRON, shooter, tercera persona, videojuego, Double Mark, arena, sci-fi, lovecraft, indie game"
+        />
+        <meta name="author" content="Double Mark" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph / Social Media -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="APEIRON | Desciende, Mejora, Muere"
+        />
+        <meta
+            property="og:description"
+            content="Un shooter en tercera persona con combates en arenas, ambientado en una plataforma petrolera abandonada."
+        />
+        <meta property="og:image" content="images/image-2.png" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="APEIRON | Desciende, Mejora, Muere"
+        />
+        <meta
+            name="twitter:description"
+            content="Un shooter en tercera persona con combates en arenas."
+        />
+        <meta name="twitter:image" content="images/image-1.png" />
+
+        <title>APEIRON by Double Mark</title>
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="images/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="images/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="images/apple-touch-icon.png"
+        />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/variables.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/components.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/sections.css" />
+        <link rel="stylesheet" href="css/animations.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
+    </head>
+    <body>
+        <!-- Grid Background -->
+        <div class="grid-bg" aria-hidden="true"></div>
+
+        <!-- ============================================
+         NAVIGATION
+    ============================================ -->
+        <nav
+            class="nav"
+            id="navbar"
+            role="navigation"
+            aria-label="Navegación principal"
+        >
+            <div class="container">
+                <a href="#" class="nav__logo" aria-label="APEIRON - Inicio">
+                    <span class="nav__logo-icon">¡!</span>
+                    ¡double mark!
+                </a>
+
+                <ul class="nav__links" id="navLinks">
+                    <li><a href="#concepto" class="nav__link">Concepto</a></li>
+                    <li>
+                        <a href="#caracteristicas" class="nav__link"
+                            >Características</a
+                        >
+                    </li>
+                    <li><a href="#zonas" class="nav__link">Zonas</a></li>
+                    <li>
+                        <a href="#personajes" class="nav__link">Personajes</a>
+                    </li>
+                    <li><a href="#gameplay" class="nav__link">Gameplay</a></li>
+                </ul>
+
+                <button
+                    class="nav__toggle"
+                    id="navToggle"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+        <header class="hero" id="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <p class="hero__subtitle">Double Mark presenta</p>
+                    <h1 class="hero__title">
+                        <span
+                            class="hero-parallax"
+                            style="--tx: 5.98px; --ty: -28.92px"
+                        >
+                            <img
+                                src="./images/logo-apeiron-3.png"
+                                alt=""
+                                aria-hidden="true"
+                                class="hero-parallax__shadow hero-parallax__shadow--2"
+                                decoding="async"
+                                loading="eager" />
+                            <img
+                                src="./images/logo-apeiron-2.png"
+                                alt=""
+                                aria-hidden="true"
+                                class="hero-parallax__shadow hero-parallax__shadow--1"
+                                decoding="async"
+                                loading="eager" />
+
+                            <img
+                                src="./images/logo-apeiron.png"
+                                alt="APEIRON Logo"
+                                class="hero-parallax__img"
+                        /></span>
+                    </h1>
+                    <style>
+                        .hero-parallax {
+                            position: relative;
+                            display: inline-block;
+
+                            /* Tweakables */
+                            --parallax-strength: 60; /* px max travel per axis */
+                            --parallax-ease: 0.12; /* 0.01 - 0.5 */
+                            --shadow1-scale: 1; /* movement multiplier */
+                            --shadow1-offset-x: 10px;
+                            --shadow1-offset-y: 10px;
+                            --shadow2-scale: 3;
+                            --shadow2-offset-x: 18px;
+                            --shadow2-offset-y: 18px;
+
+                            /* Runtime */
+                            --tx: 0px;
+                            --ty: 0px;
+                        }
+                        .hero-parallax__img {
+                            position: relative;
+                            z-index: 3;
+                            display: block;
+                        }
+                        .hero-parallax__shadow {
+                            position: absolute;
+                            inset: 0;
+                            z-index: 1;
+                            width: 100%;
+                            height: auto;
+                            transform: translate3d(
+                                calc(
+                                    var(--tx) * var(--shadow1-scale) -
+                                        var(--shadow1-offset-x)
+                                ),
+                                calc(
+                                    var(--ty) * var(--shadow1-scale) +
+                                        var(--shadow1-offset-y)
+                                ),
+                                0
+                            );
+                            will-change: transform;
+                            pointer-events: none;
+                        }
+                        .hero-parallax__shadow--2 {
+                            z-index: 1;
+                            transform: translate3d(
+                                calc(
+                                    var(--tx) * var(--shadow2-scale) -
+                                        var(--shadow2-offset-x)
+                                ),
+                                calc(
+                                    var(--ty) * var(--shadow2-scale) +
+                                        var(--shadow2-offset-y)
+                                ),
+                                0
+                            );
+                        }
+                        @media (prefers-reduced-motion: reduce) {
+                            .hero-parallax__shadow {
+                                transform: none !important;
+                            }
+                        }
+                    </style>
+                    <script>
+                        (function () {
+                            const prefersReduced = window.matchMedia(
+                                '(prefers-reduced-motion: reduce)'
+                            ).matches;
+                            const finePointer =
+                                window.matchMedia('(pointer: fine)').matches;
+                            if (prefersReduced) return;
+
+                            const title =
+                                document.querySelector('.hero__title');
+
+                            const wrapper =
+                                document.querySelector('.hero-parallax');
+
+                            const shadow1 = document.querySelector(
+                                'hero-parallax__shadow--1'
+                            );
+                            const shadow2 = document.querySelector(
+                                'hero-parallax__shadow--2'
+                            );
+
+                            if (!finePointer) return;
+
+                            const clamp = (v, min, max) =>
+                                Math.min(max, Math.max(min, v));
+
+                            const getNumberVar = (el, name, fallback) => {
+                                const v = parseFloat(
+                                    getComputedStyle(el)
+                                        .getPropertyValue(name)
+                                        .trim()
+                                );
+                                return Number.isFinite(v) ? v : fallback;
+                            };
+
+                            let strength = getNumberVar(
+                                wrapper,
+                                '--parallax-strength',
+                                Math.min(
+                                    20,
+                                    Math.max(
+                                        10,
+                                        Math.round(window.innerWidth / 80)
+                                    )
+                                )
+                            );
+                            strength = clamp(strength, 0, 200);
+
+                            let ease = getNumberVar(
+                                wrapper,
+                                '--parallax-ease',
+                                0.12
+                            );
+                            ease = clamp(ease, 0.01, 0.5);
+
+                            let tx = 0,
+                                ty = 0;
+                            let targetX = 0,
+                                targetY = 0;
+
+                            let rafId = null;
+                            const animate = () => {
+                                tx += (targetX - tx) * ease;
+                                ty += (targetY - ty) * ease;
+                                wrapper.style.setProperty(
+                                    '--tx',
+                                    tx.toFixed(2) + 'px'
+                                );
+                                wrapper.style.setProperty(
+                                    '--ty',
+                                    ty.toFixed(2) + 'px'
+                                );
+                                rafId = requestAnimationFrame(animate);
+                            };
+
+                            const onMove = (e) => {
+                                const x = e.clientX / window.innerWidth - 0.5;
+                                const y = e.clientY / window.innerHeight - 0.5;
+                                targetX = -x * strength;
+                                targetY = -y * strength;
+                                if (rafId === null)
+                                    rafId = requestAnimationFrame(animate);
+                            };
+
+                            const onLeave = () => {
+                                targetX = 0;
+                                targetY = 0;
+                            };
+
+                            window.addEventListener('mousemove', onMove, {
+                                passive: true,
+                            });
+                            window.addEventListener('mouseleave', onLeave, {
+                                passive: true,
+                            });
+                        })();
+                    </script>
+                    <p class="hero__tagline">Desciende, Mejora, Muere</p>
+                    <p class="hero__description">
+                        Un shooter en tercera persona con combates en arenas,
+                        ambientado en una plataforma petrolera abandonada.
+                        Enfrenta máquinas olvidadas, horrores cósmicos y
+                        descubre los oscuros secretos del gobierno.
+                    </p>
+                    <div class="hero__cta">
+                        <a
+                            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                            class="btn btn--primary"
+                            target="_blank"
+                            noopener
+                            noreferrer
+                        >
+                            Mira el trailer
+                            <span>→</span>
+                        </a>
+                        <a href="#concepto" class="btn btn--outline">
+                            Conoce más
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__stripe" aria-hidden="true"></div>
+            <div class="hero__date">[1990-2002]</div>
+        </header>
+
+        <main>
+            <!-- ============================================
+             CONCEPT SECTION
+        ============================================ -->
+            <section class="concept" id="concepto">
+                <div class="container">
+                    <div class="concept__grid">
+                        <div class="concept__text animate-on-scroll">
+                            <h2>El <span>misterio</span> te espera</h2>
+                            <p>
+                                Asumes el rol de un ingeniero contratado por el
+                                gobierno para investigar una plataforma
+                                petrolera abandonada cerca de la isla Miyake. Lo
+                                que comienza como una simple misión de
+                                reconocimiento se convierte en una pesadilla
+                                llena de máquinas olvidadas, horrores cósmicos y
+                                engaños.
+                            </p>
+                            <p>
+                                Tu único aliado: un compañero robótico con una
+                                personalidad carismática y un pasado borroso que
+                                guarda más secretos de los que revela.
+                            </p>
+                        </div>
+                        <div class="concept__visual animate-on-scroll">
+                            <img
+                                src="images/image-5.png"
+                                alt="Screenshot del juego APEIRON mostrando la plataforma petrolera"
+                                loading="lazy"
+                            />
+                            <span class="placeholder-text">[ SCREENSHOT ]</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+             FEATURES SECTION
+        ============================================ -->
+            <section class="features" id="caracteristicas">
+                <div class="container">
+                    <div class="features__header animate-on-scroll">
+                        <h2>Características <span>principales</span></h2>
+                        <p>
+                            Acción intensa combinada con progresión y
+                            personalización
+                        </p>
+                    </div>
+
+                    <div class="features__grid">
+                        <article class="feature-card animate-on-scroll">
+                            <div class="feature-card__icon">
+                                <img
+                                    src="images/icons/icon-combat.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </div>
+                            <h3 class="feature-card__title">
+                                Combate en Arenas
+                            </h3>
+                            <p class="feature-card__desc">
+                                Enfrenta oleadas de enemigos en salas cerradas.
+                                Cada encuentro es una prueba sin segundas
+                                oportunidades que exige reflejos y adaptación.
+                            </p>
+                        </article>
+
+                        <article class="feature-card animate-on-scroll">
+                            <div class="feature-card__icon">
+                                <img
+                                    src="images/icons/icon-upgrade.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </div>
+                            <h3 class="feature-card__title">
+                                Mejoras Significativas
+                            </h3>
+                            <p class="feature-card__desc">
+                                Las mejoras cambian tu estilo de juego, no son
+                                simples aumentos de estadísticas. Modifica
+                                cadencia, daño, alcance y efectos únicos.
+                            </p>
+                        </article>
+
+                        <article class="feature-card animate-on-scroll">
+                            <div class="feature-card__icon">
+                                <img
+                                    src="images/icons/icon-robot.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </div>
+                            <h3 class="feature-card__title">
+                                Compañero Robótico
+                            </h3>
+                            <p class="feature-card__desc">
+                                Un aliado con personalidad propia, humor negro y
+                                habilidades especiales que podrás activar en
+                                momentos críticos.
+                            </p>
+                        </article>
+
+                        <article class="feature-card animate-on-scroll">
+                            <div class="feature-card__icon">
+                                <img
+                                    src="images/icons/icon-story.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </div>
+                            <h3 class="feature-card__title">
+                                Narrativa Ambiental
+                            </h3>
+                            <p class="feature-card__desc">
+                                Descubre la historia a través de documentos,
+                                grabaciones y detalles visuales. La verdad se
+                                esconde en cada rincón.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+             ZONES SECTION
+        ============================================ -->
+            <section class="zones" id="zonas">
+                <div class="container">
+                    <div class="zones__header animate-on-scroll">
+                        <h2>Tres zonas, <span>un descenso</span></h2>
+                        <p>
+                            Cada nivel representa una etapa hacia la verdad
+                            oculta
+                        </p>
+                    </div>
+
+                    <div class="zones__timeline">
+                        <!-- Zona 1 -->
+                        <article class="zone-card animate-on-scroll">
+                            <div class="zone-card__content">
+                                <span class="zone-card__number">01</span>
+                                <h3 class="zone-card__title">
+                                    Zona Industrial
+                                </h3>
+                                <p>
+                                    Maquinaria abandonada, ordenadores olvidados
+                                    y estructuras gigantescas. Introducción al
+                                    combate y primeros secretos. El silencio se
+                                    rompe solo por sonidos mecánicos antiguos.
+                                </p>
+                            </div>
+                            <div class="zone-card__visual">
+                                <img
+                                    src="images/image.png"
+                                    alt="Zona Industrial - Maquinaria abandonada y estructuras metálicas"
+                                    loading="lazy"
+                                />
+                                <span class="placeholder-text"
+                                    >[ ZONA INDUSTRIAL ]</span
+                                >
+                            </div>
+                        </article>
+
+                        <!-- Zona 2 -->
+                        <article class="zone-card animate-on-scroll">
+                            <div class="zone-card__content">
+                                <span class="zone-card__number">02</span>
+                                <h3 class="zone-card__title">Laboratorio</h3>
+                                <p>
+                                    Instalaciones científicas derruidas,
+                                    cristales rotos, tanques de contención. Aquí
+                                    descubres la verdad: el Aether, los
+                                    experimentos y los ingenieros anteriores.
+                                </p>
+                            </div>
+                            <div class="zone-card__visual">
+                                <img
+                                    src="images/image-1.png"
+                                    alt="Laboratorio - Instalaciones científicas con tanques de contención"
+                                    loading="lazy"
+                                />
+                                <span class="placeholder-text"
+                                    >[ LABORATORIO ]</span
+                                >
+                            </div>
+                        </article>
+
+                        <!-- Zona 3 -->
+                        <article class="zone-card animate-on-scroll">
+                            <div class="zone-card__content">
+                                <span class="zone-card__number">03</span>
+                                <h3 class="zone-card__title">
+                                    Ruinas Lovecraftianas
+                                </h3>
+                                <p>
+                                    Arquitectura antinatural, símbolos arcanos,
+                                    biotecnología alienígena fusionada con
+                                    robots. El clímax narrativo y enfrentamiento
+                                    con el guardián corrompido.
+                                </p>
+                            </div>
+                            <div class="zone-card__visual">
+                                <img
+                                    src="images/image-2.png"
+                                    alt="Ruinas Lovecraftianas - Arquitectura alienígena y símbolos arcanos"
+                                    loading="lazy"
+                                />
+                                <span class="placeholder-text">[ RUINAS ]</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+             CHARACTERS SECTION
+        ============================================ -->
+            <section class="characters" id="personajes">
+                <div class="container">
+                    <div class="characters__header animate-on-scroll">
+                        <h2>Conoce a los <span>protagonistas</span></h2>
+                        <p>Tres destinos entrelazados en un ciclo sin fin</p>
+                    </div>
+
+                    <div class="characters__grid">
+                        <!-- Ingeniero -->
+                        <article class="character-card animate-on-scroll">
+                            <div class="character-card__image">
+                                <img
+                                    src="images/image-4.png"
+                                    alt="Yellow - El Ingeniero protagonista"
+                                    loading="lazy"
+                                />
+                                <span class="placeholder-text"
+                                    >[ INGENIERO ]</span
+                                >
+                            </div>
+                            <div class="character-card__info">
+                                <h3 class="character-card__name">Yellow</h3>
+                                <span class="character-card__role"
+                                    >El Ingeniero</span
+                                >
+                                <p class="character-card__desc">
+                                    Enviado por el gobierno sin conocer el
+                                    peligro real. Silencioso, eficiente y
+                                    práctico. Solo quiere sobrevivir.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Compañero -->
+                        <article class="character-card animate-on-scroll">
+                            <div class="character-card__image">
+                                <img
+                                    src="images/image-3.png"
+                                    alt="Compañero Robótico aliado del jugador"
+                                    loading="lazy"
+                                />
+                                <span class="placeholder-text"
+                                    >[ COMPAÑERO ]</span
+                                >
+                            </div>
+                            <div class="character-card__info">
+                                <h3 class="character-card__name">???</h3>
+                                <span class="character-card__role"
+                                    >Compañero Robótico</span
+                                >
+                                <p class="character-card__desc">
+                                    Carismático y entrañable. Guarda secretos
+                                    del pasado y es tu único aliado real.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+             GAMEPLAY SECTION
+        ============================================ -->
+            <section class="gameplay" id="gameplay">
+                <div class="container">
+                    <div class="gameplay__grid">
+                        <div class="gameplay__mechanics animate-on-scroll">
+                            <h2>Mecánicas de <span>combate</span></h2>
+                            <p>
+                                Sistema de combate rápido, preciso y letal
+                                diseñado para PC con teclado y mouse.
+                            </p>
+
+                            <ul class="mechanics-list">
+                                <li>
+                                    Movimiento ágil: correr, saltar, dash
+                                    multidireccional
+                                </li>
+                                <li>
+                                    Tres armas principales intercambiables en
+                                    tiempo real
+                                </li>
+                                <li>Ataque cuerpo a cuerpo con cooldown</li>
+                                <li>
+                                    Escudos consumibles y regeneración de salud
+                                </li>
+                                <li>
+                                    Modificación de armas: cadencia, daño y
+                                    alcance
+                                </li>
+                                <li>
+                                    Oleadas de enemigos variados: rápidos,
+                                    blindados, voladores
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="gameplay__controls animate-on-scroll">
+                            <h3>Controles</h3>
+                            <div class="controls-grid">
+                                <div class="control-item">
+                                    <span class="control-key">WASD</span>
+                                    <span class="control-action"
+                                        >Movimiento</span
+                                    >
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">SPACE</span>
+                                    <span class="control-action">Saltar</span>
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">SHIFT</span>
+                                    <span class="control-action">Dash</span>
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">1-3</span>
+                                    <span class="control-action"
+                                        >Seleccionar arma</span
+                                    >
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">5</span>
+                                    <span class="control-action"
+                                        >Deseleccionar arma</span
+                                    >
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">CLIC IZQ</span>
+                                    <span class="control-action">Disparar</span>
+                                </div>
+                                <div class="control-item">
+                                    <span class="control-key">CLIC DER</span>
+                                    <span class="control-action">Melee</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================
+             CTA SECTION
+        ============================================ -->
+            <section class="cta" id="cta">
+                <div class="container">
+                    <div class="cta__content animate-on-scroll">
+                        <h2>¿Listo para <span>descender</span>?</h2>
+                        <p>
+                            Síguenos para conocer las novedades del desarrollo y
+                            ser el primero en jugar APEIRON.
+                        </p>
+                        <a href="#" class="btn btn--primary">
+                            Lee el GDD
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============================================
+         FOOTER
+    ============================================ -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__brand">
+                        <div class="footer__logo">
+                            <img
+                                src="images/logo-doublemark.png"
+                                alt="Double Mark Logo"
+                            />
+                            <span>¡!</span>
+                        </div>
+                        <div class="footer__info">
+                            <span class="footer__name">DOUBLE MARK</span>
+                            <span class="footer__date">[1990-2002]</span>
+                        </div>
+                    </div>
+
+                    <nav class="footer__nav" aria-label="Enlaces del footer">
+                        <div class="footer__links">
+                            <a
+                                href="https://twitter.com/itsdoublemark"
+                                class="footer__link"
+                                aria-label="Síguenos en Instagram"
+                                >Instagram</a
+                            >
+
+                            <a
+                                href="mailto:2blemark@gmail.com"
+                                class="footer__link"
+                                aria-label="Contáctanos"
+                                >2blemark@gmail.com</a
+                            >
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__copyright">
+                        © 2026 Double Mark. Todos los derechos reservados.
+                        APEIRON es una marca registrada.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script src="js/navigation.js"></script>
+        <script src="js/animations.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>

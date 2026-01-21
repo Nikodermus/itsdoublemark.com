@@ -1,0 +1,366 @@
+/* ============================================
+   RESPONSIVE - APEIRON
+   Media queries para diferentes dispositivos
+   ============================================ */
+
+/* ----------------------------------------
+   Large Desktop (1400px+)
+---------------------------------------- */
+@media (min-width: 1400px) {
+    .container {
+        padding: 0 var(--space-lg);
+    }
+}
+
+/* ----------------------------------------
+   Desktop (1200px - 1399px)
+---------------------------------------- */
+@media (max-width: 1399px) {
+    :root {
+        --grid-size: 40px;
+    }
+}
+
+/* ----------------------------------------
+   Small Desktop / Large Tablet (1024px - 1199px)
+---------------------------------------- */
+@media (max-width: 1199px) {
+    .characters__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+    }
+    
+    .character-card__image {
+        height: 200px;
+    }
+}
+
+/* ----------------------------------------
+   Tablet (768px - 1023px)
+---------------------------------------- */
+@media (max-width: 1023px) {
+    :root {
+        --space-lg: 3rem;
+        --space-xl: 4rem;
+    }
+    
+    /* Concept Grid */
+    .concept__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .concept__visual {
+        height: 300px;
+    }
+
+    /* Zones Timeline */
+    .zones__timeline::before {
+        left: 20px;
+    }
+
+    .zone-card {
+        grid-template-columns: 1fr;
+        padding-left: 50px;
+    }
+
+    .zone-card:nth-child(even) {
+        direction: ltr;
+    }
+    
+    .zone-card__visual {
+        min-height: 180px;
+    }
+
+    /* Characters Grid */
+    .characters__grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .character-card__image {
+        height: 280px;
+    }
+
+    /* Gameplay Grid */
+    .gameplay__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+}
+
+/* ----------------------------------------
+   Mobile Landscape / Small Tablet (640px - 767px)
+---------------------------------------- */
+@media (max-width: 767px) {
+    :root {
+        --container-padding: var(--space-sm);
+        --grid-size: 30px;
+    }
+    
+    /* Navigation - Mobile Menu */
+    .nav__links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--color-bg-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-md);
+        transition: right var(--transition-smooth);
+        border-left: 1px solid var(--color-grid-line);
+        padding: var(--space-md);
+    }
+
+    .nav__links.active {
+        right: 0;
+    }
+
+    .nav__toggle {
+        display: flex;
+    }
+    
+    .nav__link {
+        font-size: var(--text-lg);
+    }
+
+    /* Hero adjustments */
+    .hero__cta {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero__date {
+        display: none;
+    }
+
+    /* Features Grid */
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Controls Grid */
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer__content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__info {
+        text-align: center;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* CTA */
+    .cta__content {
+        padding: var(--space-md);
+    }
+    
+    .cta::before {
+        width: 95%;
+    }
+}
+
+/* ----------------------------------------
+   Mobile Portrait (up to 639px)
+---------------------------------------- */
+@media (max-width: 639px) {
+    :root {
+        --space-md: 1.5rem;
+        --space-lg: 2.5rem;
+        --space-xl: 3rem;
+    }
+    
+    /* Typography adjustments */
+    h2 {
+        margin-bottom: var(--space-sm);
+    }
+    
+    /* Hero */
+    .hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 100px;
+    }
+    
+    .hero__stripe {
+        width: 100%;
+        height: 50%;
+        opacity: 0.2;
+    }
+    
+    /* Zone cards */
+    .zone-card {
+        padding-left: 30px;
+    }
+    
+    .zones__timeline::before {
+        left: 10px;
+    }
+    
+    .zone-card__number {
+        font-size: var(--text-3xl);
+    }
+    
+    /* Feature cards */
+    .feature-card {
+        padding: var(--space-sm);
+    }
+    
+    .feature-card__icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Character cards */
+    .character-card__image {
+        height: 220px;
+    }
+    
+    .character-card__info {
+        padding: var(--space-sm);
+    }
+    
+    /* Controls */
+    .control-item {
+        padding: var(--space-xs);
+    }
+    
+    .control-key {
+        min-width: 50px;
+        font-size: var(--text-xs);
+    }
+}
+
+/* ----------------------------------------
+   Very Small Screens (up to 374px)
+---------------------------------------- */
+@media (max-width: 374px) {
+    :root {
+        --container-padding: var(--space-xs);
+    }
+    
+    .nav__logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .nav__logo {
+        font-size: var(--text-base);
+    }
+    
+    .hero__title {
+        text-shadow: 
+            2px 2px 0 var(--color-accent-purple),
+            4px 4px 0 rgba(107, 45, 92, 0.5);
+    }
+    
+    .btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--text-xs);
+    }
+    
+    .footer__logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ----------------------------------------
+   Height-based adjustments
+---------------------------------------- */
+@media (max-height: 700px) {
+    .hero {
+        min-height: auto;
+        padding: 120px 0 var(--space-lg);
+    }
+    
+    .hero__description {
+        margin-bottom: var(--space-md);
+    }
+}
+
+/* ----------------------------------------
+   Landscape orientation on mobile
+---------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 80px 0 var(--space-md);
+    }
+    
+    .hero__tagline {
+        margin-bottom: var(--space-sm);
+    }
+    
+    .hero__description {
+        display: none;
+    }
+    
+    section {
+        padding: var(--space-md) 0;
+    }
+}
+
+/* ----------------------------------------
+   High DPI / Retina displays
+---------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ajustes para pantallas de alta resolución si es necesario */
+    .grid-bg {
+        background-size: calc(var(--grid-size) * 1) calc(var(--grid-size) * 1);
+    }
+}
+
+/* ----------------------------------------
+   Print Styles
+---------------------------------------- */
+@media print {
+    .grid-bg,
+    .hero__stripe,
+    .nav,
+    .nav__toggle,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    section {
+        padding: 20px 0;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}

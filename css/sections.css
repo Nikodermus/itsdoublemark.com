@@ -1,0 +1,272 @@
+/* ============================================
+   SECTIONS - APEIRON
+   Estilos específicos de cada sección
+   ============================================ */
+
+/* ----------------------------------------
+   Hero Section
+---------------------------------------- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--header-height);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+    color: var(--color-text-primary);
+    text-shadow: 
+        4px 4px 0 var(--color-accent-purple),
+        8px 8px 0 rgba(107, 45, 92, 0.5);
+    margin-bottom: var(--space-sm);
+    line-height: 0.9;
+}
+
+.hero__tagline {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    color: var(--color-accent-yellow);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+}
+
+.hero__description {
+    max-width: 600px;
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-lg);
+    line-height: 1.8;
+}
+
+.hero__cta {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.hero__stripe {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 70%;
+    height: 80%;
+    background: var(--gradient-stripe);
+    clip-path: polygon(100% 100%, 100% 40%, 50% 100%);
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero__date {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: var(--container-padding);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.hero__date::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--color-text-muted);
+}
+
+/* ----------------------------------------
+   Concept Section
+---------------------------------------- */
+.concept {
+    background: var(--gradient-fade-dark);
+}
+
+.concept__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.concept__text h2 {
+    color: var(--color-text-primary);
+}
+
+.concept__text h2 span {
+    color: var(--color-accent-red);
+}
+
+.concept__text p {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-base);
+    line-height: 1.9;
+}
+
+.concept__visual {
+    position: relative;
+    height: 400px;
+    background: var(--color-bg-grid);
+    border: 1px solid var(--color-grid-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.concept__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.concept__visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-stripe);
+}
+
+/* ----------------------------------------
+   Features Section
+---------------------------------------- */
+.features__header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.features__header h2 span {
+    color: var(--color-accent-orange);
+}
+
+.features__header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------
+   Zones Section
+---------------------------------------- */
+.zones {
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(107, 45, 92, 0.1),
+        transparent
+    );
+}
+
+.zones__header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.zones__header h2 span {
+    color: var(--color-accent-magenta);
+}
+
+.zones__header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------
+   Characters Section
+---------------------------------------- */
+.characters__header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.characters__header h2 span {
+    color: var(--color-accent-yellow);
+}
+
+.characters__header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------
+   Gameplay Section
+---------------------------------------- */
+.gameplay {
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(0, 0, 0, 0.6),
+        transparent
+    );
+}
+
+.gameplay__mechanics h2 span {
+    color: var(--color-accent-orange);
+}
+
+.gameplay__controls h3 {
+    margin-bottom: var(--space-md);
+}
+
+/* ----------------------------------------
+   CTA Section
+---------------------------------------- */
+.cta {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    position: relative;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 2px;
+    background: var(--gradient-stripe);
+    opacity: 0.5;
+}
+
+.cta__content {
+    position: relative;
+    z-index: 2;
+    background: var(--color-bg-dark);
+    display: inline-block;
+    padding: var(--space-lg);
+}
+
+.cta h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.cta h2 span {
+    color: var(--color-accent-red);
+}
+
+.cta p {
+    margin-bottom: var(--space-md);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

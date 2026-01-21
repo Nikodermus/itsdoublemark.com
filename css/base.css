@@ -1,0 +1,206 @@
+/* ============================================
+   BASE STYLES - APEIRON
+   Estilos globales y tipografía
+   ============================================ */
+
+/* ----------------------------------------
+   Body Base
+---------------------------------------- */
+body {
+    font-family: var(--font-mono);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+/* ----------------------------------------
+   Grid Background
+---------------------------------------- */
+.grid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-grid);
+    background-image: 
+        linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    z-index: var(--z-behind);
+    pointer-events: none;
+}
+
+.grid-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background: var(--gradient-stripe);
+    clip-path: polygon(100% 100%, 100% 30%, 40% 100%);
+    opacity: 0.15;
+}
+
+/* ----------------------------------------
+   Typography - Headings
+---------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: var(--text-hero);
+}
+
+h2 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-md);
+}
+
+h3 {
+    font-size: var(--text-2xl);
+    color: var(--color-accent-yellow);
+}
+
+h4 {
+    font-size: var(--text-xl);
+}
+
+/* ----------------------------------------
+   Typography - Body Text
+---------------------------------------- */
+p {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+p + p {
+    margin-top: var(--space-sm);
+}
+
+/* ----------------------------------------
+   Typography - Links
+---------------------------------------- */
+a {
+    color: var(--color-text-primary);
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-accent-yellow);
+}
+
+/* ----------------------------------------
+   Typography - Emphasis
+---------------------------------------- */
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+/* ----------------------------------------
+   Typography - Accents in Headings
+---------------------------------------- */
+h2 span {
+    color: var(--color-accent-red);
+}
+
+/* ----------------------------------------
+   Lists
+---------------------------------------- */
+ul,
+ol {
+    padding-left: var(--space-md);
+}
+
+li {
+    margin-bottom: var(--space-xs);
+}
+
+/* ----------------------------------------
+   Images
+---------------------------------------- */
+img {
+    object-fit: cover;
+}
+
+/* ----------------------------------------
+   Placeholder Text (for images)
+---------------------------------------- */
+.placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hide placeholder when image loads */
+img:not([src=""]):not([src*="placeholder"]) + .placeholder-text {
+    display: none;
+}
+
+/* ----------------------------------------
+   Main Content Area
+---------------------------------------- */
+main {
+    position: relative;
+    z-index: var(--z-base);
+}
+
+/* ----------------------------------------
+   Section Base
+---------------------------------------- */
+section {
+    padding: var(--space-xl) 0;
+    position: relative;
+}
+
+/* ----------------------------------------
+   Horizontal Rules
+---------------------------------------- */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--color-grid-line);
+    margin: var(--space-md) 0;
+}
+
+/* ----------------------------------------
+   Code/Pre (if needed)
+---------------------------------------- */
+code,
+pre {
+    font-family: var(--font-mono);
+    background: var(--color-bg-card);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+}
+
+pre {
+    padding: var(--space-sm);
+    overflow-x: auto;
+}
